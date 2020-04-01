@@ -3,11 +3,36 @@ package edu.iastate.cs228.hw3;
 public class Test {
 
 	public static void main(String[] args) {
-		PrimeFactorization test = new PrimeFactorization(234);
-		PrimeFactorization test2 = new PrimeFactorization(2);
-		test.dividedBy(2524);
-		System.out.println(test.toString());
-		System.out.println(PrimeFactorization.dividedBy(test, test2).toString());
+
+
+		// First method tests
+		PrimeFactorization a = new PrimeFactorization(25480);
+		PrimeFactorization b = new PrimeFactorization(98);
+		System.out.println(a.toString());
+		System.out.println(b.toString());
+		
+		System.out.println(PrimeFactorization.dividedBy(b,a));
+//		System.out.println(a.toString());
+//		System.out.println(a.value());
+
+
+		
+
+
+//		PrimeFactorization test2 = new PrimeFactorization(2);
+//		test.multiply(2);
+//		System.out.println(test.toString());
+//		System.out.println(test.value());
+		
+//		System.out.println(test.toString());
+//		System.out.println(test2.toString());
+//		System.out.println(test.gcd(test2).toString());
+//		System.out.println(PrimeFactorization.gcd(test, test2));
+//		test.dividedBy(2524);
+//		System.out.println(test.toString());
+//		System.out.println(PrimeFactorization.dividedBy(test, test2).toString());
+//		
+//		System.out.println(PrimeFactorization.Euclidean(1231, 4243));
 //		System.out.println(test.toString());
 //		System.out.println(test2.toString());
 //		test.multiply(test2);
