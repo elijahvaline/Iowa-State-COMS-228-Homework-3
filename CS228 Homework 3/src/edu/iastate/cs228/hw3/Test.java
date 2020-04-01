@@ -4,12 +4,15 @@ public class Test {
 
 	public static void main(String[] args) {
 		PrimeFactorization test = new PrimeFactorization(234);
-		PrimeFactorization test2 = new PrimeFactorization(52);
+		PrimeFactorization test2 = new PrimeFactorization(2);
+		test.dividedBy(2524);
+		System.out.println(test.toString());
+		System.out.println(PrimeFactorization.dividedBy(test, test2).toString());
 //		System.out.println(test.toString());
 //		System.out.println(test2.toString());
 //		test.multiply(test2);
-		PrimeFactorization test3 = PrimeFactorization.multiply(test, test2);
-		System.out.println(test3.toString());
+//		PrimeFactorization test3 = PrimeFactorization.multiply(test, test2);
+//		System.out.println(test3.toString());
 
 
 	}
