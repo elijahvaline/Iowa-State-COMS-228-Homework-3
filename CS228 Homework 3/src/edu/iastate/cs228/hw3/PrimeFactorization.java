@@ -106,9 +106,9 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 		head.next = tail;
 		tail.previous = head;
 		PrimeFactorizationIterator it = pf.iterator();
-	
+
 		while (it.hasNext()) {
-			
+
 			add(it.cursor.pFactor.prime, it.cursor.pFactor.multiplicity);
 			it.next();
 
@@ -318,33 +318,28 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 	 */
 	public boolean dividedBy(PrimeFactorization pf) {
 
-
-
 		if (this.value != -1 && pf.value != -1 && this.value < pf.value) {
 			return false;
-		} else if ((this.value != -1 && pf.value == -1))
-		//|| (this.value%pf.value != 0)
-			{
+		} else if ((this.value != -1 && pf.value == -1)) {
 			return false;
 		} else if (this.value == pf.value) {
 			clearList();
 			this.add(1, 1);
 			return true;
 		}
-		
+
 		PrimeFactorization copy = new PrimeFactorization(this);
 		PrimeFactorizationIterator iterCopy = copy.iterator();
 		PrimeFactorizationIterator iterPf = pf.iterator();
-		while (!(iterPf.cursor == pf.tail)) {	
-			while ((iterCopy.cursor.pFactor.prime >= iterPf.cursor.pFactor.prime) == false && (!iterCopy.hasNext() && iterPf.hasNext()) == false) {
+		while (!(iterPf.cursor == pf.tail)) {
+			while ((iterCopy.cursor.pFactor.prime >= iterPf.cursor.pFactor.prime) == false
+					&& (!iterCopy.hasNext() && iterPf.hasNext()) == false) {
 				iterCopy.next();
 				if (iterCopy.cursor.pFactor == null) {
 					return false;
 				}
-						//&& iterPf.hasNext();
 			}
-			
-			
+
 			if (!(iterCopy.hasNext()) && iterPf.hasNext()) {
 				return false;
 			}
@@ -352,11 +347,13 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 			else {
 				if (iterCopy.cursor.pFactor.prime > iterPf.cursor.pFactor.prime) {
 					return false;
-				} if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
+				}
+				if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
 					if (iterCopy.cursor.pFactor.multiplicity > iterPf.cursor.pFactor.multiplicity) {
 						return false;
 					}
-				} if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
+				}
+				if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
 					if (iterCopy.cursor.pFactor.multiplicity >= iterPf.cursor.pFactor.multiplicity) {
 						iterCopy.cursor.pFactor.multiplicity -= iterPf.cursor.pFactor.multiplicity;
 						if (iterCopy.cursor.pFactor.multiplicity == 0) {
@@ -365,16 +362,14 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 						}
 						iterCopy.next();
 						iterPf.next();
-
 					}
 				}
 			}
 		}
-		
+
 		this.head = copy.head;
 		this.tail = copy.tail;
 		this.size = copy.size;
-//		s
 		return true;
 	}
 
@@ -390,35 +385,29 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 	 *         otherwise
 	 */
 	public static PrimeFactorization dividedBy(PrimeFactorization pf1, PrimeFactorization pf2) {
-		
-
-
 
 		if (pf1.value != -1 && pf2.value != -1 && pf1.value < pf2.value) {
 			return pf1;
-		} else if ((pf1.value != -1 && pf2.value == -1))
-		//|| (this.value%pf.value != 0)
-			{
+		} else if ((pf1.value != -1 && pf2.value == -1)) {
 			return pf1;
 		} else if (pf1.value == pf2.value) {
 			pf1.clearList();
 			pf1.add(1, 1);
 			return pf1;
 		}
-		
+
 		PrimeFactorization copy = new PrimeFactorization(pf1);
 		PrimeFactorizationIterator iterCopy = copy.iterator();
 		PrimeFactorizationIterator iterPf = pf2.iterator();
-		while (!(iterPf.cursor == pf2.tail)) {		
-			while ((iterCopy.cursor.pFactor.prime >= iterPf.cursor.pFactor.prime) == false && (!iterCopy.hasNext() && iterPf.hasNext()) == false) {
+		while (!(iterPf.cursor == pf2.tail)) {
+			while ((iterCopy.cursor.pFactor.prime >= iterPf.cursor.pFactor.prime) == false
+					&& (!iterCopy.hasNext() && iterPf.hasNext()) == false) {
 				iterCopy.next();
 				if (iterCopy.cursor.pFactor == null) {
 					return pf1;
 				}
-						//&& iterPf.hasNext();
 			}
-			
-			
+
 			if (!(iterCopy.hasNext()) && iterPf.hasNext()) {
 				return pf1;
 			}
@@ -426,11 +415,13 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 			else {
 				if (iterCopy.cursor.pFactor.prime > iterPf.cursor.pFactor.prime) {
 					return pf1;
-				} if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
+				}
+				if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
 					if (iterCopy.cursor.pFactor.multiplicity > iterPf.cursor.pFactor.multiplicity) {
 						return pf1;
 					}
-				} if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
+				}
+				if (iterCopy.cursor.pFactor.prime == iterPf.cursor.pFactor.prime) {
 					if (iterCopy.cursor.pFactor.multiplicity >= iterPf.cursor.pFactor.multiplicity) {
 						iterCopy.cursor.pFactor.multiplicity -= iterPf.cursor.pFactor.multiplicity;
 						if (iterCopy.cursor.pFactor.multiplicity == 0) {
@@ -444,7 +435,7 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 				}
 			}
 		}
-		
+
 		pf1.head = copy.head;
 		pf1.tail = copy.tail;
 		pf1.size = copy.size;
@@ -603,11 +594,11 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 		it.cursor = head.next;
 
 		String out = "";
-		
-		for (int i = 0; i< size-1; i++) {
+
+		for (int i = 0; i < size - 1; i++) {
 			out += it.cursor.toString();
 			it.next();
-			out+= " * ";
+			out += " * ";
 		}
 		out += it.cursor.toString();
 		return out;
@@ -721,7 +712,7 @@ public class PrimeFactorization implements Iterable<PrimeFactor> {
 		@Override
 		public boolean hasNext() {
 			if (index < size) {
-				
+
 				return true;
 			}
 			return false;
